@@ -16,12 +16,15 @@ public class Board extends BaseTimeEntity{
     @Column(nullable = false)
     private String title;
 
+    @Column(columnDefinition = "int default 0")
     private Integer readCount;
 
     private Long parent_board_id;
 
+    @Column(columnDefinition = "int default 0")
     private Integer depth;
 
+    @Column(columnDefinition = "int default 0")
     private Integer replySeq;
 
     @OneToOne(optional = false, fetch = FetchType.LAZY)

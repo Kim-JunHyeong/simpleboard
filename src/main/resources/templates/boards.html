@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+                xml:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Hello MainPage </h1>
+<h3>카테고리 목록</h3>
+    <ol th:each="category : ${categories}">
+        <li th:text="'카테고리 이름 : ' + ${category.name}"></li>
+    </ol>
+<h3>게시글 목록</h3>
+    <ul th:each="board : ${boards}">
+        <li th:text="'글 제목 : ' + ${board.title}"></li>
+    </ul>
+</body>
+</html>
