@@ -14,5 +14,6 @@ public class BoardBody {
     private Long id;
 
     @Lob
+    @Column(nullable = false)
     private String content;
 }

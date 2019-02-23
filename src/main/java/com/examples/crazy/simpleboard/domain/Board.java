@@ -28,11 +28,11 @@ public class Board extends BaseTimeEntity{
     @JoinColumn(name = "board_body_id")
     private BoardBody boardBody;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
