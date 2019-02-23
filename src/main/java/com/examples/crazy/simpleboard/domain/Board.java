@@ -37,5 +37,5 @@ public class Board extends BaseTimeEntity{
     private User user;
 
 //    @OneToMany(mappedBy = "board")
-//    private Set<File> files = new HashSet<>();
+//    private Set<FileInfo> files = new HashSet<>();
 }

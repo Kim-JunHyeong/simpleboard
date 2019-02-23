@@ -6,9 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity @Table(name = "file")
+@Entity @Table(name = "file_info")
 @Getter @Setter @EqualsAndHashCode(of = "id")
-public class File {
+public class FileInfo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
