@@ -8,4 +8,5 @@ public interface BoardService {
 
     Page<Board> getBoards(Pageable pageable);
 
+    Board getBoard(Long id);
 }

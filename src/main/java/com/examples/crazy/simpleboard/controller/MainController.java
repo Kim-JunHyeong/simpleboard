@@ -17,7 +17,12 @@ public class MainController {
     private final BoardService boardService;
     private final CategoryService categoryService;
 
-    @GetMapping(value = {"/", "/boards"})
+    @GetMapping("/")
+    public String mainRedirect() {
+        return "redirect:/boards";
+    }
+
+    @GetMapping("/boards")
     public String mainPage(ModelMap modelMap,
                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
 

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity @Table(name = "board")
 @Getter @Setter @EqualsAndHashCode(of = "id", callSuper = false)
@@ -17,15 +19,15 @@ public class Board extends BaseTimeEntity{
     private String title;
 
     @Column(columnDefinition = "int default 0")
-    private Integer readCount;
+    private int readCount;
 
     private Long parent_board_id;
 
     @Column(columnDefinition = "int default 0")
-    private Integer depth;
+    private int depth;
 
     @Column(columnDefinition = "int default 0")
-    private Integer replySeq;
+    private int replySeq;
 
     @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "board_body_id")
@@ -39,6 +41,9 @@ public class Board extends BaseTimeEntity{
     @JoinColumn(name = "user_id")
     private User user;
 
-//    @OneToMany(mappedBy = "board")
-//    private Set<FileInfo> files = new HashSet<>();
+    @OneToMany(mappedBy = "board")
+    private Set<FileInfo> files = new HashSet<>();
+
+    @OneToMany(mappedBy = "board")
+    private Set<Comment> comments = new HashSet<>();
 }

@@ -27,3 +27,13 @@ INSERT INTO comment (id, content, parent_comment_id, board_id, user_id)
 VALUES (2, 'Spring 댓글?!', 2, 2, 1);
 INSERT INTO comment (id, content, parent_comment_id, board_id, user_id)
 VALUES (3, 'JPA 댓글?!', 3, 3, 1);
+
+INSERT INTO comment (id, content, parent_comment_id, board_id, user_id)
+VALUES (4, 'Java 댓글22?!', 4, 1, 1);
+INSERT INTO comment (id, content, parent_comment_id, board_id, user_id)
+VALUES (5, 'Java 1번 댓글의 댓글?!', 1, 1, 1);
+INSERT INTO comment (id, content, parent_comment_id, board_id, user_id)
+VALUES (6, 'Java 1번 댓글의 댓글?!', 1, 1, 1);
+
+INSERT INTO file_info (id, original_file_name, stored_file_name, content_type, size, board_id)
+VALUES (1, '원본파일이름.jpg', '저장경로인데 지금은 일단...', '해당 파일의 타입', 777, 1);
