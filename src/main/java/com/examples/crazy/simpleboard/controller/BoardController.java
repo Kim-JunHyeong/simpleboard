@@ -4,6 +4,7 @@ import com.examples.crazy.simpleboard.service.BoardService;
 import com.examples.crazy.simpleboard.service.CategoryService;
 import com.examples.crazy.simpleboard.service.CommentService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/boards")

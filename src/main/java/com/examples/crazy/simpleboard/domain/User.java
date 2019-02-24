@@ -1,12 +1,11 @@
 package com.examples.crazy.simpleboard.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@AllArgsConstructor @NoArgsConstructor @Builder
 @Entity @Table(name = "user")
 @Getter @Setter @EqualsAndHashCode(of = "id")
 public class User {

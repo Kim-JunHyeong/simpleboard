@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup Page</title>
+</head>
+<body>
+<h1>회원 정보 입력</h1>
+<form method="post" th:action="@{/signup}">
+아이디 : <input type="text" name="loginId"/> <input type="button" value="중복확인구현하기"><br>
+비밀번호 : <input type="password" name="password"/><br>
+비밀번호 확인 : <input type="password" name="passwordCheck"/><br>
+닉네임 : <input type="text" name="alias"/><br>
+이메일 주소 : <input type="email" name="email"/><br>
+    <input type="submit" value="회원가입"/><br>
+</form>
+<!-- TODO 추후에 비밀번호 확인, 아이디/닉네임/이메일 중복 확인, 이메일 인증 구현해보기 -->
+</body>
+</html>

@@ -1,16 +1,24 @@
 package com.examples.crazy.simpleboard.config;
 
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder;
+    }
 
     // 인증을 무시할 경로
     @Override
@@ -53,8 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .usernameParameter("loginId").passwordParameter("password")
                     .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/boards")
-                    .failureUrl("/login")
-                .and()
-                .csrf().ignoringAntMatchers("/**"); // TODO 일단 csrf를 무시하도록 했음. 추후 변경하자
+                    .failureUrl("/login");
+//                .and()
+//                .csrf().ignoringAntMatchers("/**"); // TODO 일단 csrf를 무시하도록 했음. 추후 변경하자
     }
 }
