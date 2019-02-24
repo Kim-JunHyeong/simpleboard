@@ -2,17 +2,23 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시판 목록</title>
 </head>
 <body>
-    <h1> Hello MainPage </h1>
+<!-- header -->
+<div>
+    <a href="/boards">Simple Board</a>
+    <a href="/login">login</a>
+    <a href="/signup">signup</a>
+</div>
 <h3>카테고리 목록</h3>
     <ol th:each="category : ${categories}">
-        <li th:text="'카테고리 이름 : ' + ${category.name}"></li>
+        <a th:href="@{'/boards/' + ${category.id}}"><li th:text="'카테고리 이름 : ' + ${category.name}"></li></a>
     </ol>
 <h3>게시글 목록</h3>
     <ul th:each="board : ${boards}">
         <li th:text="'글 제목 : ' + ${board.title}"></li>
     </ul>
+
 </body>
 </html>

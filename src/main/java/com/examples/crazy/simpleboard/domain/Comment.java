@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @Table(name = "comment")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
-public class Comment {
+@EqualsAndHashCode(of = "id", callSuper = false)
+public class Comment extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

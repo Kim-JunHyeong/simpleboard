@@ -61,8 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .usernameParameter("loginId").passwordParameter("password")
                     .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/boards")
-                    .failureUrl("/login");
-//                .and()
-//                .csrf().ignoringAntMatchers("/**"); // th:action 을 사용하면 thymeleaf 가 자동으로 csrf 토큰을 생성해줌
+                    .failureUrl("/login")
+                .and()
+                .csrf().ignoringAntMatchers("/**"); // th:action 을 사용하면 thymeleaf 가 자동으로 csrf 토큰을 생성해줌
     }
 }

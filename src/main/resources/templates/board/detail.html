@@ -30,8 +30,8 @@
 <ul th:each="comment : ${comments}">
     <li th:text="'댓글 작성자 : ' + ${comment.user.alias}"></li>
     <li th:text="'댓글 내용 : ' + ${comment.content}"></li>
+    <li th:text="'작성 시간 : ' + ${comment.createdDate}"></li>
 </ul>
-지웠다고!!!
 
 </body>
 </html>

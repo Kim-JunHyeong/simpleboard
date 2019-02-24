@@ -4,6 +4,7 @@ import com.examples.crazy.simpleboard.domain.Board;
 import com.examples.crazy.simpleboard.domain.BoardBody;
 import com.examples.crazy.simpleboard.domain.Category;
 import com.examples.crazy.simpleboard.domain.FileInfo;
+import com.examples.crazy.simpleboard.dto.BoardsDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,31 @@ public class BoardRepositoryTest {
         for(Board board : all) {
             System.out.println(board.getClass().getName());
         }
+    }
+
+    @Test
+    public void 카테고리별상품목록구하기() {
+        PageRequest of = PageRequest.of(0, 10);
+
+        Page<BoardsDto> all = boardRepository.findBoardsByCategoryId(1L, of);
+
+        all.forEach(board -> {
+            System.out.println(board.getTitle());
+            System.out.println(board.getReadCount());
+            System.out.println(board.getUserAlias());
+        });
+
+    }
+
+    @Test
+    public void 모든상품목록구하기() {
+        PageRequest of = PageRequest.of(0, 10);
+
+        Page<BoardsDto> all = boardRepository.findBoardAll(of);
+
+        all.forEach(board -> {
+            System.out.println(board.getUserAlias());
+        });
     }
 
     @Test

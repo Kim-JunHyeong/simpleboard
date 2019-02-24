@@ -26,7 +26,7 @@ public class BoardController {
 
     @GetMapping
     public String boardList(ModelMap modelMap,
-                           @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+                           @PageableDefault Pageable pageable) {
 
         modelMap.addAttribute("boards", boardService.getBoards(pageable));
         modelMap.addAttribute("categories", categoryService.getCategories());
@@ -34,8 +34,16 @@ public class BoardController {
         return "board/list";
     }
 
-    @GetMapping("/{id}")
-    public String boardDetail(@PathVariable Long id,
+    @GetMapping("/{categoryId}")
+    public String boardCategory(@PageableDefault Pageable pageable,
+                                @PathVariable Long categoryId, ModelMap modelMap) {
+        modelMap.addAttribute("boards", boardService.getBoardsByCategory(categoryId, pageable));
+
+        return "board/list";
+    }
+
+    @GetMapping("/{categoryId}/{id}")
+    public String boardDetail(@PathVariable Long categoryId, @PathVariable Long id,
                               ModelMap modelMap) {
 
         modelMap.addAttribute("board", boardService.getBoard(id));

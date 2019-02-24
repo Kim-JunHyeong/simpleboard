@@ -1,6 +1,7 @@
 package com.examples.crazy.simpleboard.service.impl;
 
 import com.examples.crazy.simpleboard.domain.Board;
+import com.examples.crazy.simpleboard.dto.BoardsDto;
 import com.examples.crazy.simpleboard.repository.BoardRepository;
 import com.examples.crazy.simpleboard.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +22,14 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<Board> getBoards(Pageable pageable) {
-        return boardRepository.findAll(pageable);
+    public Page<BoardsDto> getBoards(Pageable pageable) {
+        return boardRepository.findBoardAll(pageable);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<BoardsDto> getBoardsByCategory(Long categoryId, Pageable pageable) {
+        return boardRepository.findBoardsByCategoryId(categoryId, pageable);
     }
 
     @Override
