@@ -29,7 +29,8 @@ public class UserController {
     }
 
     @GetMapping("/signup")
-    public String signup(ModelMap modelMap, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    public String signup(ModelMap modelMap,
+                         @AuthenticationPrincipal CustomUserDetails userDetails) {
         if (userDetails != null)
             return "redirect:/boards";  // TODO 로그인 상태면 메인페이지로 리다이렉트, JavaScript 로 경고창 설정하자
 
@@ -38,7 +39,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signupAction(@Validated @ModelAttribute SignupDto signupDto, BindingResult bindingResult) {
+    public String signupAction(@Validated @ModelAttribute SignupDto signupDto,
+                               BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(error -> {
                 log.info(error.getDefaultMessage());

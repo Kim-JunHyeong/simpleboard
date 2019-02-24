@@ -63,6 +63,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .defaultSuccessUrl("/boards")
                     .failureUrl("/login");
 //                .and()
-//                .csrf().ignoringAntMatchers("/**"); // TODO 일단 csrf를 무시하도록 했음. 추후 변경하자
+//                .csrf().ignoringAntMatchers("/**"); // th:action 을 사용하면 thymeleaf 가 자동으로 csrf 토큰을 생성해줌
     }
 }

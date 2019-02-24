@@ -43,4 +43,9 @@ public class BoardController {
 
         return "board/detail";
     }
+
+    @GetMapping("/writeform")
+    public String writeform() {
+        return "writeform";
+    }
 }
