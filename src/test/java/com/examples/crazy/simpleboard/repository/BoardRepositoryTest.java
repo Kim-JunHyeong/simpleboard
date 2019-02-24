@@ -1,7 +1,8 @@
 package com.examples.crazy.simpleboard.repository;
 
 import com.examples.crazy.simpleboard.domain.Board;
-import com.examples.crazy.simpleboard.domain.Comment;
+import com.examples.crazy.simpleboard.domain.BoardBody;
+import com.examples.crazy.simpleboard.domain.Category;
 import com.examples.crazy.simpleboard.domain.FileInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +12,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.awt.print.Pageable;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
+
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -20,6 +24,9 @@ public class BoardRepositoryTest {
 
     @Autowired
     BoardRepository boardRepository;
+
+    @Autowired
+    BoardBodyRepository boardBodyRepository;
 
     @Test
     public void lazyTest() {
@@ -29,6 +36,30 @@ public class BoardRepositoryTest {
         for(Board board : all) {
             System.out.println(board.getClass().getName());
         }
+    }
+
+    @Test
+    public void baseTimeEntityCheck() {
+        // given
+        LocalDateTime now = LocalDateTime.now();
+
+        BoardBody boardBody = new BoardBody();
+        boardBody.setContent("체크할거야");
+        BoardBody savedBoardBody = boardBodyRepository.save(boardBody);
+
+        Board board = new Board();
+        board.setTitle("baseTimeCheck");
+        board.setBoardBody(savedBoardBody);
+
+        boardRepository.save(board);
+
+        // when
+        List<Board> boards = boardRepository.findAll();
+
+        // then
+        Board board1 = boards.get(3);
+        assertThat(board1.getCreatedDate()).isAfter(now);
+        assertThat(board1.getModifiedDate()).isAfter(now);
     }
 
     @Test
