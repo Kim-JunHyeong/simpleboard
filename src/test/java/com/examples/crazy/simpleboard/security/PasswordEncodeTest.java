@@ -21,7 +21,7 @@ public class PasswordEncodeTest {
         String encoder = passwordEncoder.encode("1234");
         System.out.println(encoder);
 
-        boolean matches = passwordEncoder.matches("1234", "{bcrypt}$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy");
+        boolean matches = passwordEncoder.matches("1234", "{bcrypt}$2a$10$m.NPxkcyQgW06p08wSESz.b6rgvJy6udSJe2IJq26R2y4lfMaby2G");
         assertThat(matches).isTrue();
     }
 }

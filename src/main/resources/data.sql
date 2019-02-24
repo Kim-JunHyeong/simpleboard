@@ -1,6 +1,6 @@
-INSERT INTO user (id, login_id, password, alias, email) VALUES (1, 'kjh4685', '{bcrypt}$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy', 'crazy', 'jhkim4685@gmail.com');
-INSERT INTO user (id, login_id, password, alias, email) VALUES (2, 'kjh46855', '{bcrypt}$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy', 'craz1y', '32jhkim4685@gmail.com');
-INSERT INTO user (id, login_id, password, alias, email) VALUES (3, 'kjh468555', '{bcrypt}$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy', 'craz12y', '12jhkim4685@gmail.com');
+INSERT INTO user (id, login_id, password, alias, email) VALUES (1, 'kjh4685', '$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy', 'crazy', 'jhkim4685@gmail.com');
+INSERT INTO user (id, login_id, password, alias, email) VALUES (2, 'kjh46855', '$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy', 'craz1y', '32jhkim4685@gmail.com');
+INSERT INTO user (id, login_id, password, alias, email) VALUES (3, 'kjh468555', '$2a$10$tgJYSm768my7yKl/nTTFquRHoPCN84HDzsHEKCURslksDDCF6QEXy', 'craz12y', '12jhkim4685@gmail.com');
 
 INSERT INTO role (id, name) VALUES (1, 'ADMIN');
 INSERT INTO role (id, name) VALUES (2, 'USER');
