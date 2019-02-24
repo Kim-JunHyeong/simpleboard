@@ -6,12 +6,21 @@
 </head>
 <body>
 <h1>회원 정보 입력</h1>
-<form method="post" th:action="@{/signup}">
-아이디 : <input type="text" name="loginId"/> <input type="button" value="중복확인구현하기"><br>
-비밀번호 : <input type="password" name="password"/><br>
-비밀번호 확인 : <input type="password" name="passwordCheck"/><br>
-닉네임 : <input type="text" name="alias"/><br>
-이메일 주소 : <input type="email" name="email"/><br>
+<form method="post" th:action="@{/signup}" th:object="${signupDto}">
+    아이디 : <input type="text" title="loginId" th:field="*{loginId}"/> <br>
+    <p th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}"></p>
+
+    비밀번호 : <input type="password" th:field="*{password}"/><br>
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+
+    비밀번호 확인 : <input type="password" th:field="*{passwordCheck}"/><br>
+    <p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}"></p>
+
+    닉네임 : <input type="text" th:field="*{alias}"/><br>
+    <p th:if="${#fields.hasErrors('alias')}" th:errors="*{alias}"></p>
+
+    이메일 주소 : <input type="email" th:field="*{email}"/><br>
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
     <input type="submit" value="회원가입"/><br>
 </form>
 <!-- TODO 추후에 비밀번호 확인, 아이디/닉네임/이메일 중복 확인, 이메일 인증 구현해보기 -->
