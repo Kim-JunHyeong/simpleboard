@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/list.css}" type="text/css">
@@ -9,8 +9,14 @@
 <!-- header -->
 <div>
     <a href="/boards">Simple Board</a>
-    <a href="/login">login</a>
-    <a href="/signup">signup</a>
+    <div sec:authorize="!isAuthenticated()">
+        <a href="/login">login</a>
+        <a href="/signup">signup</a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        <a href="/logout">logout</a>
+        <a href="/mypage">mypage</a>
+    </div>
 </div>
 <h3>카테고리 목록</h3>
     <ol th:each="category : ${categories}">
