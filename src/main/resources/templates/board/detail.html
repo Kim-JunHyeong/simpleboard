@@ -10,7 +10,7 @@
 <li th:text="'카테고리: ' + ${board.category.name}"></li>
 
 <h3>해당 글의 작성자</h3>
-<li th:text="'작성자: ' + ${board.user.alias}"></li>
+<li th:text="'작성자: ' + ${board.member.alias}"></li>
 
 <h3>해당 글의 첨부파일</h3>
 <ul th:each="fileInfo : ${board.files}">
@@ -28,7 +28,7 @@
 
 <h3>해당 글의 댓글</h3>
 <ul th:each="comment : ${comments}">
-    <li th:text="'댓글 작성자 : ' + ${comment.user.alias}"></li>
+    <li th:text="'댓글 작성자 : ' + ${comment.member.alias}"></li>
     <li th:text="'댓글 내용 : ' + ${comment.content}"></li>
     <li th:text="'작성 시간 : ' + ${comment.createdDate}"></li>
 </ul>

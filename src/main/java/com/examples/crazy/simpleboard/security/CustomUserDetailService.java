@@ -1,8 +1,8 @@
 package com.examples.crazy.simpleboard.security;
 
 import com.examples.crazy.simpleboard.domain.Role;
-import com.examples.crazy.simpleboard.domain.User;
-import com.examples.crazy.simpleboard.service.UserService;
+import com.examples.crazy.simpleboard.domain.Member;
+import com.examples.crazy.simpleboard.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,28 +22,28 @@ import java.util.Collection;
 public class CustomUserDetailService implements UserDetailsService {
     // `Spring Security`에서 사용하는 `UserDetailsService`를 구현하는 클래스 작성
 
-    private final UserService userService;
+    private final MemberService memberService;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
-        User user = userService.getUser(loginId);
-        log.info(user.getLoginId());
+        Member member = memberService.getMember(loginId);
+        log.info(member.getLoginId());
 
-        if (user == null) {
+        if (member == null) {
             throw new UsernameNotFoundException(loginId + "is not found!!");
         }
 
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : user.getRoles()) {
+        for (Role role : member.getRoles()) {
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
         }
-//        user.getRoles().forEach(role ->
+//        member.getRoles().forEach(role ->
 //          ((ArrayList<GrantedAuthority>) authorities).add(new SimpleGrantedAuthority("ROLE_" + role.getName())));
 
-        CustomUserDetails userDetails = new CustomUserDetails(loginId, user.getPassword(), authorities);
-        userDetails.setId(user.getId());
-        userDetails.setLoginId(user.getLoginId());
+        CustomUserDetails userDetails = new CustomUserDetails(loginId, member.getPassword(), authorities);
+        userDetails.setId(member.getId());
+        userDetails.setLoginId(member.getLoginId());
 
         return userDetails;
     }

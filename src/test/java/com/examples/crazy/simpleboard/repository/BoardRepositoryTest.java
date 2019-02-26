@@ -2,7 +2,6 @@ package com.examples.crazy.simpleboard.repository;
 
 import com.examples.crazy.simpleboard.domain.Board;
 import com.examples.crazy.simpleboard.domain.BoardBody;
-import com.examples.crazy.simpleboard.domain.Category;
 import com.examples.crazy.simpleboard.domain.FileInfo;
 import com.examples.crazy.simpleboard.dto.BoardsDto;
 import org.junit.Test;
@@ -48,7 +47,7 @@ public class BoardRepositoryTest {
         all.forEach(board -> {
             System.out.println(board.getTitle());
             System.out.println(board.getReadCount());
-            System.out.println(board.getUserAlias());
+            System.out.println(board.getMemberAlias());
         });
 
     }
@@ -60,7 +59,7 @@ public class BoardRepositoryTest {
         Page<BoardsDto> all = boardRepository.findBoardAll(of);
 
         all.forEach(board -> {
-            System.out.println(board.getUserAlias());
+            System.out.println(board.getMemberAlias());
         });
     }
 
@@ -93,7 +92,7 @@ public class BoardRepositoryTest {
         Board board = boardRepository.findBoardById(1L);
         System.out.println(board.getBoardBody().getContent());
         System.out.println(board.getCategory().getName());
-        System.out.println(board.getUser().getAlias());
+        System.out.println(board.getMember().getAlias());
 
         Set<FileInfo> files = board.getFiles();
         for (FileInfo fileInfo : files) {

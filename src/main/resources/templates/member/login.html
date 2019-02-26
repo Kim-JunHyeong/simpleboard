@@ -8,6 +8,7 @@
     <form method="post" th:action="@{/login}">
         아이디 : <input type="text" name="loginId"/><br>
         비밀번호 : <input type="password" name="password"/><br>
+        <p th:if="${loginError}" class="error">아이디 또는 비밀번호를 잘못 입력하셨습니다.</p>
         <input type="submit" value="로그인">
     </form>
 </body>

@@ -22,7 +22,7 @@ public class CommentRepositoryTest {
 
         for (Comment comment : comments) {
             System.out.println(comment.getContent());
-            System.out.println(comment.getUser().getAlias());
+            System.out.println(comment.getMember().getAlias());
         }
     }
 }

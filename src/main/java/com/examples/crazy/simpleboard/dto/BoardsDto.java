@@ -11,7 +11,7 @@ public class BoardsDto {
 
     private Long boardId;
     private String title;
-    private String userAlias;
+    private String memberAlias;
     private int readCount;
     private LocalDateTime createdDate;
 }

@@ -3,12 +3,13 @@ package com.examples.crazy.simpleboard.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor @NoArgsConstructor @Builder
-@Entity @Table(name = "user")
+@Entity @Table(name = "member")
 @Getter @Setter @EqualsAndHashCode(of = "id")
-public class User {
+public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,14 +27,14 @@ public class User {
     private String email;
 
     @ManyToMany
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+    @JoinTable(name = "member_role",
+            joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
-//    @OneToMany(mappedBy = "user")
+//    @OneToMany(mappedBy = "member")
 //    private Set<Board> boards;
 
-//    @OneToMany(mappedBy = "user")
+//    @OneToMany(mappedBy = "member")
 //    private Set<Comment> comments;
 }

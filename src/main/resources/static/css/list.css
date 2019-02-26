@@ -1,0 +1,59 @@
+.sub_tables, sub_tables th, sub_tables td {
+    border: 0;
+}
+.sub_tables a {
+    color: #383838;
+    text-decoration:none;
+}
+.sub_tables {
+    width: 80%;
+    border-bottom: 1px solid #999;
+    color: #666;
+    font-size: 15px;
+    table-layout: fixed;
+}
+.sub_tables caption {
+    display: none;
+}
+.sub_tables th {
+    padding: 5px 0 6px;
+    border-top: solid 1px #999;
+    border-bottom: solid 1px #b2b2b2;
+    background-color: #f1f1f4;
+    color: #333;
+    font-weight: bold;
+    line-height:20px;
+    vertical-align: top;
+}
+.sub_tables td {
+    padding: 8px 0 9px;
+    border-bottom: solid 1px #d2d2d2;
+    text-align: center;
+    line-height: 18px;
+}
+.sub_tables .date, .sub_tables .hit {
+    padding: 0;
+    font-family: "D2Coding ligature";
+    font-size: 14px;
+    line-height: normal;
+}
+.sub_tables .title {
+    text-align: left;
+    padding-left: 15px;
+    font-size: 16px;
+}
+.sub_tables .title .pic, .sub_tables .title .new{
+    margin: 0 0 2px;
+    vertical-align: middle;
+}
+.sub_tables .title a.comment {
+    padding: 0;
+    background: none;
+    color: #f00;
+    font-size: 15px;
+    font-weight: bold;
+}
+.sub_tables tr.reply .title a {
+    padding-left: 16px;
+    background: url("/img/ic_reply.png") 0 1px no-repeat;
+}

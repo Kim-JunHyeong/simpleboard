@@ -1,6 +1,6 @@
 package com.examples.crazy.simpleboard.repository;
 
-import com.examples.crazy.simpleboard.domain.User;
+import com.examples.crazy.simpleboard.domain.Member;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +9,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UserRepositoryTest {
+public class MemberRepositoryTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private MemberRepository memberRepository;
 
     @Test
-    public void getUser() {
-        User user = userRepository.findByLoginId("kjh4685");
+    public void getMember() {
+        Member member = memberRepository.findByLoginId("kjh4685");
 
-        System.out.println(user.getAlias());
+        System.out.println(member.getAlias());
     }
 
 }

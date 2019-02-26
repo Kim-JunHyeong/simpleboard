@@ -1,5 +1,6 @@
 package com.examples.crazy.simpleboard.domain;
 
+import com.examples.crazy.simpleboard.domain.constant.MemberRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ public class Role {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 30, nullable = false, unique = true)
-    private String name;
+    @Column(length = 20, nullable = false, unique = true)
+    @Enumerated(value = EnumType.STRING)
+    private MemberRole name;
 }
